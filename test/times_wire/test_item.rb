@@ -37,4 +37,27 @@ class TestTimesWire::TestItem < Test::Unit::TestCase
 		end
   end
   
+  context "create list of 20 items from the World section of NYT" do
+		setup do
+		  @items = Item.section('nyt', 'World', 20)
+		end
+
+		should "return an array of 20 objects of the Item type from the NYT World section" do
+		  assert_equal(20, @items.size)
+			assert_kind_of(Item, @items.first)
+			assert_equal(["World"], @items.map {|i| i.section}.uniq)
+		end
+  end
+  
+  context "create list of items from The Caucus blog" do
+		setup do
+		  @items = Item.blog_name('nyt', 'U.S.', 'The Caucus')
+		end
+
+		should "return an array of objects of the Item type from the NYT U.S. section and Caucus blog" do
+			assert_kind_of(Item, @items.first)
+			assert_equal(["The Caucus"], @items.map {|i| i.kicker}.uniq)
+		end
+  end
+  
 end

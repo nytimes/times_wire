@@ -33,11 +33,22 @@ module TimesWire
                :related_urls => params['related_urls']
     end
     
-    def self.latest(source="all", limit=20)
+    def self.latest(source="nyt", limit=20)
 		  reply = Base.invoke("#{source}/all", {"limit" => limit})
 			results = reply['results']
 			@items = results.map {|r| Item.create_from_api(r)}
     end
     
+    def self.section(source='nyt', section=section, limit=20)
+		  reply = Base.invoke("#{source}/#{section}/", {"limit" => limit})
+			results = reply['results']
+			@items = results.map {|r| Item.create_from_api(r)}      
+    end
+    
+    def self.blog_name(source='nyt', section=section, blog=blog, limit=20)
+		  reply = Base.invoke("#{source}/#{section}/", {"limit" => limit})
+			results = reply['results'].select{|i| i['blog_name'] == blog}
+			@items = results.map {|r| Item.create_from_api(r)}    
+    end
   end
 end
