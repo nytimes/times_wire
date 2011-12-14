@@ -9,7 +9,7 @@ Times Wire is a Ruby gem for interacting with The New York Times Newswire API (h
 
 == News
 
-* Dec. 14, 2011: Version 0.6.0 released, with support for related URLs and blog name elements.
+* Dec. 14, 2011: Version 0.6.0 released, with support for related URLs and blog name attributes.
 * Dec. 13, 2011: Version 0.5.0 released.
 
 == Installation
