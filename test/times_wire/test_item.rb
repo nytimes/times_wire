@@ -51,7 +51,7 @@ class TestTimesWire::TestItem < Test::Unit::TestCase
   
   context "create list of items from The Caucus blog" do
 		setup do
-		  @items = Item.blog_name('nyt', 'U.S.', 'The Caucus')
+		  @items = Item.blog_name('nyt', 'u.s.', 'The Caucus')
 		end
 
 		should "return an array of objects of the Item type from the NYT U.S. section and Caucus blog" do
