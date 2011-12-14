@@ -30,7 +30,9 @@ module TimesWire
                :org_facets => params['org_facet'],
                :per_facets => params['per_facet'],
                :geo_facets => params['geo_facet'],
-               :related_urls => params['related_urls']
+               :blog_name => params['blog_name'],
+               :related_urls => params['related_urls'],
+               :multimedia => params['multimedia']
     end
     
     def self.latest(source="nyt", limit=20)

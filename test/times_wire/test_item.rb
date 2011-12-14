@@ -3,13 +3,21 @@ class TestTimesWire::TestItem < Test::Unit::TestCase
 	
 	context "create single Item" do
 		setup do
-		  reply = Base.invoke('', {"url" => "http://www.nytimes.com/2010/12/17/world/asia/17sanger.html"})
+		  reply = Base.invoke('', {"url" => "http://www.nytimes.com/2011/12/14/us/california-revenue-shortfall-to-force-cuts.html"})
 			@result = reply['results'].first
 			@item = Item.create_from_api(@result)
 		end
 		
-		should "return an object of the Item type" do
+		should "return an object of the Item type" do		  
 			assert_kind_of(Item, @item)
+		end
+		
+		should "have a byline" do
+		  assert_equal("By JENNIFER MEDINA", @item.byline)
+		end
+		
+		should "have a multimedia array" do
+		  assert_equal("Standard Thumbnail", @item.multimedia.first['format'])
 		end
   end
 

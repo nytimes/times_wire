@@ -9,6 +9,7 @@ Times Wire is a Ruby gem for interacting with The New York Times Newswire API (h
 
 == News
 
+* Dec. 14, 2011: Version 0.6.0 released, with support for related URLs and blog name elements.
 * Dec. 13, 2011: Version 0.5.0 released.
 
 == Installation
@@ -44,6 +45,8 @@ Limiting the items retrieved to a section of The Times is easy, too. For a list 
 Retrieving items from a single Times blog is similar:
 
   @items = Item.blog_name('nyt', 'u.s.', 'The Caucus')
+
+Items from the Newswire API have mostly the same attributes, with some exceptions. Blog posts will have a "blog_name" attribute, while articles do not. Items that have facets and related_urls will return an array of those items, and items that have some multimedia elements (usually photographs) will return an array containing a hash for each multimedia element.
 
 == Future Development
 
