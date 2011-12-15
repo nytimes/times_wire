@@ -63,4 +63,4 @@ Derek Willis, dwillis@nytimes.com
 
 == Copyright
 
-Copyright (c) 2011 Derek Willis. See LICENSE for details.
+Copyright (c) 2011 The New York Times Company. See LICENSE for details.
