@@ -57,6 +57,19 @@ class TestTimesWire::TestItem < Test::Unit::TestCase
 		end
   end
   
+  # test that sections with spaces and ampersands are properly handled
+  context "create list of 20 items from the fashion & style section of NYT" do
+		setup do
+		  @items = Item.section('nyt', 'fashion & style', 20)
+		end
+
+		should "return an array of objects of the Item type from the NYT Fashion & Style section" do
+		  assert_equal(20, @items.size)
+			assert_kind_of(Item, @items.first)
+			assert_equal(["Fashion & Style"], @items.map {|i| i.section}.uniq)
+		end
+  end
+  
   context "create list of items from The Caucus blog" do
 		setup do
 		  @items = Item.blog_name('nyt', 'u.s.', 'The Caucus')

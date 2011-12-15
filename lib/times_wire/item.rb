@@ -42,6 +42,7 @@ module TimesWire
     end
     
     def self.section(source='nyt', section=section, limit=20)
+      section = section.gsub(' ', '+').gsub('&', '%26')
 		  reply = Base.invoke("#{source}/#{section}/", {"limit" => limit})
 			results = reply['results']
 			@items = results.map {|r| Item.create_from_api(r)}      
