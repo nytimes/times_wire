@@ -3,7 +3,7 @@ require 'rubygems'
 require 'shoulda'
 require 'json'
 
-%w(base item).each do |f|
+%w(base item section).each do |f|
   require File.join(File.dirname(__FILE__), '../lib/times_wire', f)
 end
 
