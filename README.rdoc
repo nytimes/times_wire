@@ -9,6 +9,7 @@ Times Wire is a Ruby gem for interacting with The New York Times Newswire API (h
 
 == News
 
+* Dec. 15, 2011: Version 0.7.0 released, adding support for retrieving list of sections.
 * Dec. 14, 2011: Version 0.6.0 released, with support for related URLs and blog name attributes.
 * Dec. 13, 2011: Version 0.5.0 released.
 
@@ -38,7 +39,11 @@ By default, 20 items are returned, but you may change the limit in any request:
 
   @items = Item.latest('iht', 15)
 
-Limiting the items retrieved to a section of The Times is easy, too. For a list of sections, please see the Newswire API documentation (http://developer.nytimes.com/docs/read/times_newswire_api):
+Limiting the items retrieved to a section of The Times is easy, too. A list of sections supported by the News Wire API can be retrieved as follows:
+
+  @sections = Section.all
+  
+A section name can then be passed as an argument to retrieve items from that section:
 
   @items = Item.section('nyt', 'world')
   
