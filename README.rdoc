@@ -21,7 +21,7 @@ Install Times Wire as a gem:
   
 For use in a Rails 3 application, put the following in your Gemfile:
 
-  gem "times_wire", "~> 0.6.0"
+  gem "times_wire", "~> 0.7.0"
 
 then issue the 'bundle install' command. Times Wire has been tested under Ruby 1.8.7.
 
