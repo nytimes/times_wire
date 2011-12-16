@@ -29,8 +29,8 @@ module TimesWire
 			@@api_key
 		end
 		
-		def self.date_parser(date)
-		  date ? Date.parse(date) : nil
+		def self.datetime_parser(datetime)
+		  datetime ? DateTime.parse(datetime) : nil
 		end
 		
 		##
