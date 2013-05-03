@@ -13,6 +13,7 @@ module TimesWire
   	@@api_key = nil
   	@@debug = false
   	@@copyright = nil
+  	@@semantic_api_key = nil
 
 		# The copyright footer to be placed at the bottom of any data from the New York Times. Note this is only set after an API call.
 		def copyright
@@ -27,6 +28,14 @@ module TimesWire
 
 		def self.api_key
 			@@api_key
+		end
+		
+		def self.semantic_api_key=(key)
+		  @@semantic_api_key = key
+		end
+		
+		def self.api_key
+		  @@semantic_api_key
 		end
 		
 		def self.datetime_parser(datetime)

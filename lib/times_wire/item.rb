@@ -35,6 +35,12 @@ module TimesWire
                :multimedia => params['multimedia']
     end
     
+    def self.url(url)
+      reply = Base.invoke('', {'url' => url})
+      return nil unless reply['results'].first
+			Item.create_from_api(reply['results'].first)
+    end
+    
     def self.latest(source="nyt", limit=20)
 		  reply = Base.invoke("#{source}/all", {"limit" => limit})
 			results = reply['results']
@@ -53,5 +59,10 @@ module TimesWire
 			results = reply['results'].select{|i| i['blog_name'] == blog}
 			@items = results.map {|r| Item.create_from_api(r)}    
     end
+    
+    def semantic_terms
+      
+    end
+    
   end
 end
