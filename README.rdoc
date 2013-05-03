@@ -9,6 +9,7 @@ Times Wire is a Ruby gem for interacting with The New York Times Newswire API (h
 
 == News
 
+* May 3, 2013: Version 0.9.0 released, added Item.url method and tested under 1.9.3.
 * Dec. 16, 2011: Version 0.8.0 released, Item returns DateTime objects instead of Dates.
 * Dec. 15, 2011: Version 0.7.0 released, adding support for retrieving list of sections.
 * Dec. 14, 2011: Version 0.6.0 released, with support for related URLs and blog name attributes.
@@ -22,15 +23,20 @@ Install Times Wire as a gem:
   
 For use in a Rails 3 application, put the following in your Gemfile:
 
-  gem "times_wire", "~> 0.8.0"
+  gem "times_wire", "~> 0.9.0"
 
-then issue the 'bundle install' command. Times Wire has been tested under Ruby 1.8.7.
+then issue the 'bundle install' command. Times Wire has been tested under Ruby 1.8.7 and 1.9.3.
 
 == Getting Started
 
 You'll need an API Key from The New York Times Developer Network (http://developer.nytimes.com/). You can set your key as an environment variable (handy for running the test suite) or set it within a script or app:
 
   TimesWire::Base.api_key = API_KEY
+
+To retrieve details for a single URL, pass it in:
+
+  @item = Item.url("http://www.nytimes.com/2013/05/04/business/economy/us-adds-165000-jobs-in-april.html")
+  => \#<TimesWire::Item:0x1014b2088 @blog_name=nil, @created_date=\#<DateTime: 212234344421/86400,-1/6,2299161>, @byline="By NELSON D. SCHWARTZ", @org_facets="", @section="Business Day", @kicker="", @updated_date=#<DateTime: 13264647209/5400,-1/6,2299161>, @related_urls=nil, @url="http://www.nytimes.com/2013/05/04/business/economy/us-adds-165000-jobs-in-april.html", @des_facets=["Labor and Jobs", "United States Economy"], @material_type_facet="News", @source="The New York Times", @geo_facets="", @abstract="The economy in April added 165,000 jobs, slightly more than expected, and the Labor Department sharply revised upward its estimates for job creation in the previous two months.", @multimedia=[{"height"=>75, "url"=>"http://graphics8.nytimes.com/images/2013/05/04/business/economy/04jobs/04jobs-thumbStandard.jpg", "subtype"=>"photo", "width"=>75, "format"=>"Standard Thumbnail", "copyright"=>"Spencer Platt/Getty Images", "caption"=>"Job candidates waited to meet with employers at a job and internship fair in New York last week.", "type"=>"image"}], @published_date=#<DateTime: 7369250/3,-1/6,2299161>, @per_facets="", @item_type="Article", @title="Jobs Data Ease Fears of Sharp Slowdown in U.S. Economy", @subheadline="">
   
 Times Wire allows users to retrieve news items by source ('nyt', 'iht' or 'all'), by section (such as 'world', 'u.s.', 'sports') or by NYTimes.com blog names ("The Caucus", "FiveThirtyEight" or "At War", for example). Building a request is easy. To retrieve the latest items from The New York Times:
 
