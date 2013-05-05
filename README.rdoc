@@ -1,4 +1,3 @@
-
   .-----. _                        .-.   .-. _            
   `-. .-':_;                       : :.-.: ::_;           
     : :  .-.,-.,-.,-. .--.  .--.   : :: :: :.-..--.  .--. 
@@ -70,4 +69,4 @@ Derek Willis, dwillis@nytimes.com
 
 == Copyright
 
-Copyright (c) 2011 The New York Times Company. See LICENSE for details.
+Copyright (c) 2013 The New York Times Company. See LICENSE for details.
